@@ -4,7 +4,7 @@
 }
 
 .page{
-  background-color: #36454f;
+ background-color: #36454f;
   height: 100vh;
   padding-top:.0625rem
 }
@@ -22,7 +22,7 @@
   max-width: 18.75rem;
 }
 .square{
-  boarder:3px solid white;
+  border:3px solid white;
   min-width:6.25rem;
   min-height:6.25rem;
   display: flex;
