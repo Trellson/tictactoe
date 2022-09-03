@@ -1,4 +1,42 @@
-html, body {
-  height: 100%;
-  width: 100%;
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.page{
+  background-color: #36454f;
+  height: 100vh;
+  padding-top:.0625rem
+}
+.title{
+  color:white;
+  text-align: center;
+  font-size: 2.25rem;
+  margin-top:7%
+}
+.board{
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  max-width: 18.75rem;
+}
+.square{
+  boarder:3px solid white;
+  min-width:6.25rem;
+  min-height:6.25rem;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  font-size:3.125rem;
+  cursor:pointer;
+}
+.playerX{
+  color: red
+}
+playerO{
+  color: blue
+}
+.hide{
+  display: none;
 }
