@@ -27,5 +27,9 @@ window.addEventListener('DomContentLoaded', () => {
     [2,4,6]
   ]
 
+  /*At this point we need a few different things. we need a function to check the user actions. This function need to put a user token on the corrosponding clicked square (some type of event listener will be needed) and to check that there is not alread a player token in the clicked square
+  we need need something that will update the board
+  and last something to change the current player
+*/
   resetButton.addEventListener('click', resetBoard);
 });
