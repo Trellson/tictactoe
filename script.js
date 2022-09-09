@@ -40,13 +40,25 @@ const userAction =
     // make square inactive after click
     //if game is over after click display winner 
         //check gamestate (winningConditions) against current state of board every turn after fifth item is added to array
-}
 
-
+//if the move is valid (based on validation function), and the game is still active, change the innertext of square to equal current player
+if (validMove(square) && gameActive==true){
+  square.innerText = currentPlayer;
+//give the square the class of the current player color
+  square.classList.add(`player${currentPlayer}`);
+  //use a function to change the state of the board variable with the index passed into the useraction function
+  markboard(index);
+  checkGameState();
+  changeplayer();
   
+  
+}
+    
+}  
   //Event listener says that whenever something with the class square is clicked, thr function userAction() will be called. userAction must be defined before event listener so it can be called by it (i beleve this is an example of synchronus code)
   squares.forEach((square, index) =>{
     square.addEventListener('click',() => userAction(square, index));
   });
+  //Event Listener says that when play again button is clicked, the resetBoard function will be called
   resetButton.addEventListener('click', resetBoard);
 });
