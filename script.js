@@ -1,7 +1,7 @@
 //has the dom listen to things happening in the current window
 window.addEventListener('DomContentLoaded', () => {
-  //in the javascript, Square is anything defined with the class square based on the querySelectorAll
-  const square = Array.from(document.querySelectorAll(".square"));
+  //in the javascript, Square is an array of items defined with the class square based on the querySelectorAll
+  const squares = Array.from(document.querySelectorAll(".square"));
 
   //the JavaScript recognizes the play Again button based on the reset ID i placed on it in the HTML
   const resetButton = document.querySelector("#reset");
@@ -31,5 +31,19 @@ window.addEventListener('DomContentLoaded', () => {
   we need need something that will update the board
   and last something to change the current player
 */
+  //because squares is an array, we can use the forEach array method on it to simplify some code. W will use this to add an event listener to each thing in the html with the class of square attached to it. Less code means less bugs
+
+
+const userAction = 
+  function userAction(square, index) {
+  
+}
+
+
+  
+  //Event listener says that whenever something with the class square is clicked, thr function userAction() will be called. userAction must be defined before event listener so it can be called by it (i beleve this is an example of synchronus code)
+  squares.forEach((square, index) =>{
+    square.addEventListener('click',() => userAction(square, index));
+  });
   resetButton.addEventListener('click', resetBoard);
 });
