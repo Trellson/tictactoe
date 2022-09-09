@@ -36,7 +36,10 @@ window.addEventListener('DomContentLoaded', () => {
 
 const userAction = 
   function userAction(square, index) {
-  
+ //if player clicks square innertext of index clicked = x or o
+    // make square inactive after click
+    //if game is over after click display winner 
+        //check gamestate (winningConditions) against current state of board every turn after fifth item is added to array
 }
 
 
