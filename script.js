@@ -50,7 +50,7 @@ checkGameState= (board)=>{
 
 };
 
-validMove = (index)=>{
+isValidMove = (index)=>{
   if (board[index]!==''){
     alert('Invalid move. Pick an empty square.');
     return false;
@@ -69,7 +69,7 @@ const userAction =
 
 //if the move is valid (based on validation function), and the game is still active, change the innertext of square to equal current player
 
-if (validMove(index) && gameActive==true){
+if (isValidMove(index) && gameActive==true){
   square.innerText = currentPlayer;
   board[index] = currentPlayer;
 //give the square the class of the current player color
