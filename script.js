@@ -34,6 +34,16 @@ window.addEventListener('DomContentLoaded', () => {
   //because squares is an array, we can use the forEach array method on it to simplify some code. W will use this to add an event listener to each thing in the html with the class of square attached to it. Less code means less bugs
 
 
+
+validMove = (square)=>{
+  if (square.innerText == 'X' || square.innerText == 'O'){
+    alert('Invalid move. Pick an empty square.');
+    return false;
+  }
+  return true;
+};
+  
+
 const userAction = 
   function userAction(square, index) {
  //if player clicks square innertext of index clicked = x or o
@@ -42,6 +52,7 @@ const userAction =
         //check gamestate (winningConditions) against current state of board every turn after fifth item is added to array
 
 //if the move is valid (based on validation function), and the game is still active, change the innertext of square to equal current player
+
 if (validMove(square) && gameActive==true){
   square.innerText = currentPlayer;
 //give the square the class of the current player color
@@ -49,9 +60,8 @@ if (validMove(square) && gameActive==true){
   //use a function to change the state of the board variable with the index passed into the useraction function
   markboard(index);
   checkGameState();
-  changeplayer();
-  
-  
+  //after the click (event listener from forEach line) if it is true current player is = to x, set current player = to o else, set current player to x got an understanding of this learning about ternary operators. it shortens if/else statements
+  currentPlayer = currentPlayer === 'X' ? 'O': 'X';
 }
     
 }  
