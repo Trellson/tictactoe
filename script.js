@@ -10,8 +10,8 @@ window.addEventListener('DomContentLoaded', () => {
   let currentPlayer = 'X';
   let gameActive= true;
 //win states of the game
-  const x-Wins = 'X Wins!';
-  const o-Wins = 'O Wins!';
+  const xWins = 'X Wins!';
+  const oWins = 'O Wins!';
   const catGame = 'Cat Game!';
 
   //posible ways to win the game are an array of arrays. This will be used to check if any of the players have won the game
@@ -33,21 +33,25 @@ window.addEventListener('DomContentLoaded', () => {
 */
   //because squares is an array, we can use the forEach array method on it to simplify some code. W will use this to add an event listener to each thing in the html with the class of square attached to it. Less code means less bugs
 // 3 bugs in this function
-isBoardFull = (board) => {
-  for (let i = 0; i <= 8; i++)  {
-    if(board[i] === ''){
-      return false;
-    }
-    return true;
-  }
-};
 
+  isboardFulll = (board) =>{
+  for (let i=0; i <= 8; i++){
+    if(board[i]===''){
+      return 'false'
+    }
+  }
+  return 'true'
+}
 // returns true if currentPlayer is winner, false otherwise
-  isWinner = (currentPlayer, board) => {
-    
+ isWinner = (currentPlayer, board) => {
+    for (let i=0; i < winningConditions.length; i++){
+          for (let j= 0; j <= 8; j++){
+            if (winningConditions[i] === board[j] )
+          }
+    }
   };
 checkGameState= (board)=>{
-
+ isBoardFull();
 };
 
 isValidMove = (index)=>{
