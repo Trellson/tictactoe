@@ -37,21 +37,31 @@ window.addEventListener('DomContentLoaded', () => {
   isboardFulll = (board) =>{
   for (let i=0; i <= 8; i++){
     if(board[i]===''){
-      return 'false'
+      return false
     }
   }
-  return 'true'
+  return true
 }
 // returns true if currentPlayer is winner, false otherwise
  isWinner = (currentPlayer, board) => {
+   let foundWinner = false
     for (let i=0; i < winningConditions.length; i++){
-          for (let j= 0; j <= 8; j++){
-            if (winningConditions[i] === board[j] )
-          }
+      let winConfig = winningCondition[i];
+      let firstPosition = winConfig[0];
+      if(board[firstposition] !== currentPlayer) continue;
+      for (let j= 1; j <= winConfig.length; j++){
+        if(winConfig[j] !== firstPosition){
+          break;
+        }
+      }
+      foundWinner = true;
     }
+   return foundWinner;
   };
+  
 checkGameState= (board)=>{
  isBoardFull();
+  isWinner();
 };
 
 isValidMove = (index)=>{
