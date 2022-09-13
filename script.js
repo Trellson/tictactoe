@@ -1,20 +1,13 @@
-//has the dom listen to things happening in the current window
 window.addEventListener('DomContentLoaded', () => {
-  //in the javascript, Square is an array of items defined with the class square based on the querySelectorAll
   const squares = Array.from(document.querySelectorAll(".square"));
 
-  //the JavaScript recognizes the play Again button based on the reset ID i placed on it in the HTML
   const resetButton = document.querySelector("#reset");
-// The board starts of as empty strings because nothing is placed yet. This code also sets the first player to x which can be randomized later or set to O depending on preference. Lastly gameActive being set to true used as a check to see the status of the game(has anyone won yet)
   let board = ['','','','','','','','',''];
   let currentPlayer = 'X';
   let gameActive= true;
-//win states of the game
   const xWins = 'X Wins!';
   const oWins = 'O Wins!';
   const catGame = 'Cat Game!';
-
-  //posible ways to win the game are an array of arrays. This will be used to check if any of the players have won the game
 
   const winningConditions = [
     [0,1,2],
@@ -27,28 +20,28 @@ window.addEventListener('DomContentLoaded', () => {
     [2,4,6]
   ]
 
-  /*At this point we need a few different things. we need a function to check the user actions. This function need to put a user token on the corrosponding clicked square (some type of event listener will be needed) and to check that there is not alread a player token in the clicked square
-  we need need something that will update the board
-  and last something to change the current player
-*/
-  //because squares is an array, we can use the forEach array method on it to simplify some code. W will use this to add an event listener to each thing in the html with the class of square attached to it. Less code means less bugs
-// 3 bugs in this function
 
-  isboardFulll = (board) =>{
+
+  isBoardFulll = (board) =>{
   for (let i=0; i <= 8; i++){
     if(board[i]===''){
       return false
     }
   }
   return true
-}
-// returns true if currentPlayer is winner, false otherwise
- isWinner = (currentPlayer, board) => {
-   let foundWinner = false
+};
+
+  
+ isWinner = (currentPlayer, board, isBoardFull) => {
+   let foundWinner = false;
+   if (foundWinner = false && isBoardFull = true){
+     alert(`Its a ${catGame}`)
+   };
     for (let i=0; i < winningConditions.length; i++){
-      let winConfig = winningCondition[i];
+      let winConfig = winningConditions[i];
       let firstPosition = winConfig[0];
-      if(board[firstposition] !== currentPlayer) continue;
+      if(board[firstPosition] !== currentPlayer)
+        continue;
       for (let j= 1; j <= winConfig.length; j++){
         if(winConfig[j] !== firstPosition){
           break;
@@ -72,35 +65,19 @@ isValidMove = (index)=>{
   return true;
 };
   
-
-  
-const userAction = 
-  function userAction(square, index) {
- //if player clicks square innertext of index clicked = x or o
-    // make square inactive after click
-    //if game is over after click display winner 
-        //check gamestate (winningConditions) against current state of board every turn after fifth item is added to array
-
-//if the move is valid (based on validation function), and the game is still active, change the innertext of square to equal current player
-
+const userAction = (square, index) => {
 if (isValidMove(index) && gameActive==true){
   square.innerText = currentPlayer;
   board[index] = currentPlayer;
-//give the square the class of the current player color
   square.classList.add(`player${currentPlayer}`);
-  //use a function to change the state of the board variable with the index passed into the useraction function
-  
-  
   checkGameState();
-  //after the click (event listener from forEach line) if it is true current player is = to x, set current player = to o else, set current player to x got an understanding of this learning about ternary operators. it shortens if/else statements
   currentPlayer = currentPlayer === 'X' ? 'O': 'X';
 }
     
-}  
-  //Event listener says that whenever something with the class square is clicked, thr function userAction() will be called. userAction must be defined before event listener so it can be called by it (i beleve this is an example of synchronus code)
+};  
+  
   squares.forEach((square, index) =>{
     square.addEventListener('click',() => userAction(square, index));
   });
-  //Event Listener says that when play again button is clicked, the resetBoard function will be called
   resetButton.addEventListener('click', resetBoard);
 });
