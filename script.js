@@ -28,15 +28,16 @@ window.addEventListener('DomContentLoaded', () => {
       return false
     }
   }
+    //set gameActive== false
   return true
 };
 
   
  isWinner = (currentPlayer, board, isBoardFull) => {
    let foundWinner = false;
-   if (foundWinner = false && isBoardFull = true){
+  /* if (foundWinner = false && isBoardFull = true){
      alert(`Its a ${catGame}`)
-   };
+   };*/
     for (let i=0; i < winningConditions.length; i++){
       let winConfig = winningConditions[i];
       let firstPosition = winConfig[0];
@@ -67,6 +68,8 @@ isValidMove = (index)=>{
   
 const userAction = (square, index) => {
 if (isValidMove(index) && gameActive==true){
+  //this part isnt working**
+  debugger;
   square.innerText = currentPlayer;
   board[index] = currentPlayer;
   square.classList.add(`player${currentPlayer}`);
