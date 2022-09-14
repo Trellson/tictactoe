@@ -13,6 +13,9 @@
   <main class= "page">
     <section class="title">Tic Tac Toe</h1>
     </section>
+    <section class='display'>
+      Player <span class= 'display-player playerX'>X</span>'s turn</section>
+    </section>
     <section class="board id="board">
       <div class="square" id="s1" ></div>
       <div class="square" id="s2"></div>
@@ -24,9 +27,10 @@
       <div class="square" id="s8"></div>
       <div class="square" id="s9"></div>
     </section>
-  <div class="winningMessage"
-    <div id="winner"> </div>
-    <button class="hide" id="reset">PLAY AGAIN</button>
+  <div class="display announcer hide"
+    <div class="controls"> 
+    <button id="reset">PLAY AGAIN</button>
+      </div>
   </div>
   </main>
   <script src="https://replit.com/public/js/replit-badge.js" theme="black" defer></script> 

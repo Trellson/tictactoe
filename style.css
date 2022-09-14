@@ -24,7 +24,7 @@
   max-width: 18.75rem;
 }
 .square{
-  border:3px solid white;
+  border: solid white;
   min-width:6.25rem;
   min-height:6.25rem;
   display: flex;
@@ -38,6 +38,13 @@
 }
 playerO{
   color: blue
+}
+.controls{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top:1rem ;
 }
 .hide{
   display: none;

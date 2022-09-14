@@ -1,4 +1,4 @@
-window.addEventListener('DomContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
   const squares = Array.from(document.querySelectorAll(".square"));
 
   const resetButton = document.querySelector("#reset");
@@ -69,12 +69,11 @@ isValidMove = (index)=>{
 const userAction = (square, index) => {
 if (isValidMove(index) && gameActive==true){
   //this part isnt working**
-  debugger;
   square.innerText = currentPlayer;
   board[index] = currentPlayer;
   square.classList.add(`player${currentPlayer}`);
   checkGameState();
-  currentPlayer = currentPlayer === 'X' ? 'O': 'X';
+  currentPlayer = currentPlayer == 'X' ? 'O': 'X';
 }
     
 };  
