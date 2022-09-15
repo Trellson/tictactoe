@@ -72,7 +72,7 @@ if (isValidMove(index) && gameActive==true){
   square.innerText = currentPlayer;
   board[index] = currentPlayer;
   square.classList.add(`player${currentPlayer}`);
-  checkGameState();
+ // checkGameState();
   currentPlayer = currentPlayer == 'X' ? 'O': 'X';
 }
     
