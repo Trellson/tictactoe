@@ -56,8 +56,8 @@ window.addEventListener('DOMContentLoaded', () => {
   alert(catGame)
 }
   else {
-  if (isWinner == true){
-    alert(`${currentPlayer}`+Wins);
+  if (isWinner(currentPlayer,board) == true){
+    alert(`${currentPlayer}Wins`);
   }
   };
     return
@@ -71,15 +71,12 @@ window.addEventListener('DOMContentLoaded', () => {
     return true;
   };
 
-  const arlandisIsWinner = (board) => {
-    console.log("haha, ain't no winner")
-  }
-
   const userAction = (square, index) => {
     if (isValidMove(index) && gameActive == true) {
       square.innerText = currentPlayer;
       board[index] = currentPlayer;
       square.classList.add(`player${currentPlayer}`);
+      //.classList
       checkGameState(board, currentPlayer);
       currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
       /*document.querySelector("section.display").innerHTML =
