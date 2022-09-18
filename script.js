@@ -53,11 +53,12 @@ window.addEventListener('DOMContentLoaded', () => {
   
   checkGameState = (board, currentPlayer) => {
   if (isBoardFull(board) === true && isWinner(board, currentPlayer) === false){
-  alert(catGame)
+  alert(catGame);
+   
 }
   else {
   if (isWinner(currentPlayer,board) == true){
-    alert(`${currentPlayer}Wins`);
+   // alert(`${currentPlayer}Wins`);
   }
   };
     return
