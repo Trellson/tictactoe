@@ -28,12 +28,12 @@ window.addEventListener('DOMContentLoaded', () => {
         return false
       }
     }
-   // set gameActive== false
+    // set gameActive== false
     return true
   };
 
 
- const isWinner = (currentPlayer, board) => {
+  const isWinner = (currentPlayer, board) => {
     let foundWinner = false;
     for (let i = 0; i < winningConditions.length; i++) {
       let winConfig = winningConditions[i];
@@ -50,17 +50,17 @@ window.addEventListener('DOMContentLoaded', () => {
     return foundWinner;
   };
 
-  
+
   checkGameState = (board, currentPlayer) => {
-  if (isBoardFull(board) === true && isWinner(board, currentPlayer) === false){
-  alert(catGame);
-   
-}
-  else {
-  if (isWinner(currentPlayer,board) == true){
-   // alert(`${currentPlayer}Wins`);
-  }
-  };
+    if (isBoardFull(board) === true && isWinner(board, currentPlayer) === false) {
+      alert(catGame);
+
+    }
+    else {
+      if (isWinner(currentPlayer, board) == true) {
+        alert(`${currentPlayer}Wins`);
+      }
+    };
     return
   };
 
@@ -80,14 +80,14 @@ window.addEventListener('DOMContentLoaded', () => {
       //.classList
       checkGameState(board, currentPlayer);
       currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
-      /*document.querySelector("section.display").innerHTML =
-        `Player${currentPlayer}'s Turn';*/
-};
-    
-};  
-  
-  squares.forEach((square, index) =>{
-    square.addEventListener('click',() => userAction(square, index));
+      document.querySelector(".display-player").innerHTML =
+        `${currentPlayer}`;
+    };
+
+  };
+
+  squares.forEach((square, index) => {
+    square.addEventListener('click', () => userAction(square, index));
   });
   resetButton.addEventListener('click', resetBoard);
 });
