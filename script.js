@@ -32,33 +32,39 @@ window.addEventListener('DOMContentLoaded', () => {
     return true
   };
 
-
   const isWinner = (currentPlayer, board) => {
-    let foundWinner = false;
-    for (let i = 0; i < winningConditions.length; i++) {
+    let foundWinner =false;
+
+    for (let i=0; i < winningConditions.length; i++){
       let winConfig = winningConditions[i];
       let firstPosition = winConfig[0];
       if (board[firstPosition] !== currentPlayer)
         continue;
-      for (let j = 1; j <= winConfig.length; j++) {
-        if (winConfig[j] !== firstPosition) {
+      for (let j = 1; j <= winConfig.length; j++){
+        let tokenAtPosition = board[winConfig[j]];
+        if (tokenAtPosition !== board [firstPosition]) {
           break;
+        } 
+        else if( j=== winConfig.length-1) {
+          foundWinner = true;
         }
       }
-      foundWinner = true;
     }
     return foundWinner;
   };
 
-
+    
   checkGameState = (board, currentPlayer) => {
     if (isBoardFull(board) === true && isWinner(board, currentPlayer) === false) {
       alert(catGame);
 
     }
     else {
+      console.log(isWinner(currentPlayer, board))
       if (isWinner(currentPlayer, board) == true) {
+        document.getElementById("board").disabled = true;
         alert(`${currentPlayer}Wins`);
+    
       }
     };
     return
